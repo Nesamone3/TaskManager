@@ -4,7 +4,7 @@ const Dashboard: React.FC = () => {
   return (
     <div>
       <h1>Dashboard</h1>
-      {/* Future dashboard content goes here */}
+      {/*dashboard content goes here */}
     </div>
   );
 };

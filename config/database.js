@@ -1,9 +1,10 @@
 const Sequelize = require('sequelize');
 
-// Create a new Sequelize instance with your database credentials
-const sequelize = new Sequelize('database_name', 'username', 'password', {
+// Created a new Sequelize instance with hardcoded logins fix later....
+const sequelize = new Sequelize('postgres', 'postgres', 'postgress', {
   host: 'localhost',
-  dialect: 'postgres' // Or 'mysql', 'sqlite', 'mssql' depending on your DB
+  port: 5432,
+  dialect: 'postgres'
 });
 
 module.exports = sequelize;

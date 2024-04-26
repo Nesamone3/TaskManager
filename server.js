@@ -9,7 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Test Route
-app.get('/', (req, res) => res.send('Hello from the Task Manager backend!'));
+app.get('/', (req, res) => res.send('Hello stuff is in progress!'));
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

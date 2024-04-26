@@ -1,0 +1,85 @@
+// Define the primary colors based on the screenshot
+$color-primary: #FFFFFF; // Example color for the background
+$color-secondary: #EFEFEF; // Example color for the task cards
+$color-accent: #F0F0F0; // Example color for hover states or accents
+$color-text: #333333; // Main text color
+$color-success: #4CAF50; // Success color for 'View' button
+$color-info: #2196F3; // Info color for 'Edit' button
+$color-danger: #F44336; // Danger color for 'Delete' button
+
+// Apply a global reset for margin and padding
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Set up the font family
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+// Styles for the main task container
+.task-container {
+  background-color: $color-primary;
+  padding: 20px;
+
+  // Search bar at the top
+  .search-bar {
+    margin-bottom: 20px;
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid $color-accent;
+    }
+  }
+
+  // Style for each task card
+  .task-card {
+    background-color: $color-secondary;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+
+    // Style for task card title and content
+    .task-title,
+    .task-content {
+      margin-bottom: 10px;
+    }
+
+    // Style for the action buttons (Edit, View, Delete)
+    .task-actions {
+      button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        margin-right: 5px;
+        cursor: pointer;
+
+        // Conditional styling based on the button type
+        &.edit {
+          background-color: $color-info;
+          color: $color-primary;
+        }
+        &.view {
+          background-color: $color-success;
+          color: $color-primary;
+        }
+        &.delete {
+          background-color: $color-danger;
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}
+
+// Style for the active task panel
+.active-task-panel {
+  background-color: $color-secondary;
+  padding: 20px;
+  border-radius: 4px;
+
+
+}
