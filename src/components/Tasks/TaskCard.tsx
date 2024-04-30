@@ -1,15 +1,20 @@
 import React from 'react';
 
-const TaskCard: React.FC = () => {
+interface TaskProps {
+  task: {
+    id: number;
+    title: string;
+    description: string;
+    completed: boolean;
+  };
+}
+
+const TaskCard: React.FC<TaskProps> = ({ task }) => {
   return (
-    <div className="task-card">
-      <h3 className="task-title">Task 1: Introduction to Figma</h3>
-      <p className="task-content">Learn what is Figma, what it's used for and how to do basic things in Figma.</p>
-      <div className="task-actions">
-        <button className="edit">Edit</button>
-        <button className="view">View</button>
-        <button className="delete">Delete</button>
-      </div>
+    <div style={{ margin: '10px', padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}>
+      <h3>{task.title}</h3>
+      <p>{task.description}</p>
+      <p>Status: {task.completed ? 'Completed' : 'Pending'}</p>
     </div>
   );
 };

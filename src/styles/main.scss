@@ -1,85 +1,95 @@
-// Define the primary colors based on the screenshot
-$color-primary: #FFFFFF; // Example color for the background
-$color-secondary: #EFEFEF; // Example color for the task cards
-$color-accent: #F0F0F0; // Example color for hover states or accents
-$color-text: #333333; // Main text color
-$color-success: #4CAF50; // Success color for 'View' button
-$color-info: #2196F3; // Info color for 'Edit' button
-$color-danger: #F44336; // Danger color for 'Delete' button
+// Color palette
+$color-primary: #4CAF50; // Green, for primary actions
+$color-secondary: #008CBA; // Blue, for secondary actions
+$color-light: #f8f8f8; // Light gray, for backgrounds
+$color-dark: #333; // Dark gray, for text
+$color-danger: #f44336; // Red, for destructive actions
 
-// Apply a global reset for margin and padding
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-// Set up the font family
+// Basic styles
 body {
   font-family: 'Arial', sans-serif;
+  background-color: $color-light;
+  color: $color-dark;
 }
 
-// Styles for the main task container
-.task-container {
-  background-color: $color-primary;
-  padding: 20px;
+// Utility classes
+.btn {
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  &.primary { background-color: $color-primary; }
+  &.secondary { background-color: $color-secondary; }
+  &.danger { background-color: $color-danger; }
+}
 
-  // Search bar at the top
-  .search-bar {
-    margin-bottom: 20px;
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid $color-accent;
-    }
+// Task cards
+.task-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 15px;
+  transition: box-shadow 0.3s;
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
 
-  // Style for each task card
-  .task-card {
-    background-color: $color-secondary;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 4px;
+  .task-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 
-    // Style for task card title and content
-    .task-title,
-    .task-content {
-      margin-bottom: 10px;
-    }
+// Grid layout for tasks
+.tasks-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
-    // Style for the action buttons (Edit, View, Delete)
-    .task-actions {
-      button {
-        padding: 10px 15px;
-        border: none;
-        border-radius: 4px;
-        margin-right: 5px;
-        cursor: pointer;
+  .task-list {
+    flex: 3;
+    margin-right: 20px;
+  }
 
-        // Conditional styling based on the button type
-        &.edit {
-          background-color: $color-info;
-          color: $color-primary;
-        }
-        &.view {
-          background-color: $color-success;
-          color: $color-primary;
-        }
-        &.delete {
-          background-color: $color-danger;
-          color: $color-primary;
-        }
+  .task-details {
+    flex: 1;
+    min-width: 250px;
+  }
+}
+
+// Form styling
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+// Header and navigation
+header {
+  background: $color-dark;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+nav {
+  ul {
+    list-style-type: none;
+    padding: 0;
+    
+    li {
+      display: inline;
+      margin-right: 20px;
+
+      a {
+        color: #fff;
+        text-decoration: none;
       }
     }
   }
-}
-
-// Style for the active task panel
-.active-task-panel {
-  background-color: $color-secondary;
-  padding: 20px;
-  border-radius: 4px;
-
-
 }

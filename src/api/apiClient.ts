@@ -10,35 +10,73 @@ export const apiClient = axios.create({
   },
 });
 
-// Task API calls
-export const getTasks = async () => {
-  return await apiClient.get('/tasks');
-};
+// Method to fetch task summary
+const getTaskSummary = () => apiClient.get('/tasks/summary');
+// Method to fetch analytics data
+const getAnalyticsData = () => apiClient.get('/analytics/data');
 
-export const getTaskById = async (id: string) => {
-  return await apiClient.get(`/tasks/${id}`);
-};
+// Task-related API calls
+const getTasks = () => apiClient.get('/tasks');
+const getTaskById = (id: number) => apiClient.get(`/tasks/${id}`);
+const createTask = (taskData: object) => apiClient.post('/tasks', taskData);
+const updateTask = (id: number, taskData: object) => apiClient.put(`/tasks/${id}`, taskData);
+const deleteTask = (id: number) => apiClient.delete(`/tasks/${id}`);
 
-export const createTask = async (taskData: object) => {
-  return await apiClient.post('/tasks', taskData);
-};
+// Status-related API calls
+const getStatuses = () => apiClient.get('/statuses');
+const getStatusById = (id: number) => apiClient.get(`/statuses/${id}`);
+const createStatus = (statusData: object) => apiClient.post('/statuses', statusData);
+const updateStatus = (id: number, statusData: object) => apiClient.put(`/statuses/${id}`, statusData);
+const deleteStatus = (id: number) => apiClient.delete(`/statuses/${id}`);
 
-export const updateTask = async (id: string, taskData: object) => {
-  return await apiClient.put(`/tasks/${id}`, taskData);
-};
+// Tag-related API calls
+const getTags = () => apiClient.get('/tags');
+const getTagById = (id: number) => apiClient.get(`/tags/${id}`);
+const createTag = (tagData: object) => apiClient.post('/tags', tagData);
+const updateTag = (id: number, tagData: object) => apiClient.put(`/tags/${id}`, tagData);
+const deleteTag = (id: number) => apiClient.delete(`/tags/${id}`);
 
-export const deleteTask = async (id: string) => {
-  return await apiClient.delete(`/tasks/${id}`);
-};
+// Activity-related API calls
+const getActivities = () => apiClient.get('/activities');
+const getActivityById = (id: number) => apiClient.get(`/activities/${id}`);
+const createActivity = (activityData: object) => apiClient.post('/activities', activityData);
+const updateActivity = (id: number, activityData: object) => apiClient.put(`/activities/${id}`, activityData);
+const deleteActivity = (id: number) => apiClient.delete(`/activities/${id}`);
 
-// need to define the rest
+// Activity Type-related API calls
+const getActivityTypes = () => apiClient.get('/activity-types');
+const getActivityTypeById = (id: number) => apiClient.get(`/activity-types/${id}`);
+const createActivityType = (activityTypeData: object) => apiClient.post('/activity-types', activityTypeData);
+const updateActivityType = (id: number, activityTypeData: object) => apiClient.put(`/activity-types/${id}`, activityTypeData);
+const deleteActivityType = (id: number) => apiClient.delete(`/activity-types/${id}`);
 
-// Export all functions as a module
 export default {
+  getAnalyticsData,
+  getTaskSummary,
+  getActivities,
   getTasks,
   getTaskById,
   createTask,
   updateTask,
   deleteTask,
-  // need to export everything...
+  getStatuses,
+  getStatusById,
+  createStatus,
+  updateStatus,
+  deleteStatus,
+  getTags,
+  getTagById,
+  createTag,
+  updateTag,
+  deleteTag,
+  getActivities,
+  getActivityById,
+  createActivity,
+  updateActivity,
+  deleteActivity,
+  getActivityTypes,
+  getActivityTypeById,
+  createActivityType,
+  updateActivityType,
+  deleteActivityType,
 };
